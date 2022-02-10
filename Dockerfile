@@ -13,6 +13,9 @@ RUN apk --no-cache add nginx && \
 ADD cfg/nginx.conf /etc/nginx/nginx.conf
 ADD src/index.html /www
 
+# Exposing port 80
+EXPOSE 80
+
 # Entrypoint and params
 ENTRYPOINT [ "nginx" ]
 CMD [ "-g", "daemon off;" ]
