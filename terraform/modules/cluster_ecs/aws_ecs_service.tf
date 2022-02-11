@@ -6,7 +6,7 @@ resource "aws_ecs_service" "svc_nginx" {
   desired_count   = 1
 
   network_configuration {
-    subnets          = [var.subnet]
+    subnets          = [var.subnets.main]
     security_groups  = [aws_security_group.allow_http_from_sg_alb.id]
     assign_public_ip = false
   }
