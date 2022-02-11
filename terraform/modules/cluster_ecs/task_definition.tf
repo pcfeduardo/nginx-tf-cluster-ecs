@@ -6,12 +6,12 @@ resource "aws_ecs_task_definition" "nginx_alpine" {
       image     = var.image_name
       essential = true
 
-      logConfiguration: {
+      logConfiguration : {
         logDriver = "awslogs"
-        options: {
-          awslogs-group           = "/ecs/nginx-alpine",
-            awslogs-region        = "us-east-2",
-            awslogs-stream-prefix = "ecs"
+        options : {
+          awslogs-group         = "/ecs/nginx-alpine",
+          awslogs-region        = "us-east-2",
+          awslogs-stream-prefix = "ecs"
         }
       }
 
@@ -22,7 +22,7 @@ resource "aws_ecs_task_definition" "nginx_alpine" {
         }
       ]
 
-      
+
     }
   ])
   requires_compatibilities = ["FARGATE"]
