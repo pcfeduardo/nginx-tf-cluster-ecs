@@ -5,7 +5,7 @@ resource "aws_lb" "alb_nginx_alpine" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.allow_http_from_internet.id]
   subnets            = [var.subnets.subnet1, var.subnets.subnet2, var.subnets.subnet1]
-  
+
 
 }
 
