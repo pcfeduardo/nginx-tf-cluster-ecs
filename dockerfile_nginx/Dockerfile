@@ -10,7 +10,9 @@ RUN apk --no-cache update && \
 
 # Installing NGINX and backuping config files
 RUN apk --no-cache add nginx && \
-    mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+    mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig && \
+    ln -s /dev/stdout /var/log/nginx/access.log && \
+    ln -s /dev/stderr /var/log/nginx/error.log
 
 ADD cfg/nginx.conf /etc/nginx/nginx.conf
 ADD src/index.html .
